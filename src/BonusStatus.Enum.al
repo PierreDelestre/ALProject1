@@ -3,6 +3,8 @@
 /// </summary>
 enum 50100 BonusStatus
 {
+    Extensible = true;
+    
     value(0; Open)
     {
         Caption = 'Open';
