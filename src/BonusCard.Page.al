@@ -45,6 +45,12 @@ page 50102 "BonusCard"
                     ToolTip = 'Specifies bonus status';
                 }
             }
+
+            part(Lines; BonusSubform)
+            {
+                ApplicationArea = All;
+                SubPageLink = "Document No." = field("No.");
+            }
         }
     }
     
