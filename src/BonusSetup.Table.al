@@ -1,3 +1,6 @@
+/// <summary>
+/// Table BonusSetup (ID 50100).
+/// </summary>
 table 50100 BonusSetup
 {
     DataClassification = CustomerContent;
