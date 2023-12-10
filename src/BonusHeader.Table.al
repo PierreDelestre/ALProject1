@@ -5,6 +5,8 @@ table 50101 BonusHeader
 {
     DataClassification = CustomerContent;
     Caption = 'Bonus';
+    DrillDownPageId = BonusList;
+    LookupPageId = BonusList;
     
     fields
     {
