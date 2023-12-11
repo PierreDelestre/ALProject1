@@ -14,4 +14,5 @@ enum 50100 BonusStatus
     {
         Caption = 'Released';
     }
+    
 }

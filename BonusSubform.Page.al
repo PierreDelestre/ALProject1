@@ -36,21 +36,5 @@ page 50103  BonusSubform
         }
     }
     
-    actions
-    {
-        area(Processing)
-        {
-#pragma warning disable AA0194
-            action(ActionName)
-            {
-                ApplicationArea = All;
-                
-                trigger OnAction()
-                begin
-                    
-                end;
-            }
-#pragma warning restore AA0194
-        }
-    }
+    
 }

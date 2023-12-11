@@ -14,6 +14,15 @@ table 50101 BonusHeader
         {
             DataClassification = CustomerContent;
             Caption = 'No.';
+
+            trigger OnValidate()
+            begin
+                if "No." <> xRec."No." then begin
+                    BonusSetup.Get();
+                    NoSeriesMgmt.TestManual(BonusSetup."Bonus Nos.");
+                    "No. Series" := '';
+                end;
+            end;
         }
 
         field(2; "Customer No."; Code[20])
@@ -40,6 +49,14 @@ table 50101 BonusHeader
             Caption = 'Status';
             DataClassification = CustomerContent;
         }
+
+        field(100; "No. Series"; Code[20])
+        {
+            Caption = 'No. Series';
+            Editable = false;
+            TableRelation = "No. Series";
+        }
+        
         
     }
     
@@ -51,11 +68,17 @@ table 50101 BonusHeader
         }
     }
     
-    fieldgroups
-    {
-        // Add changes to field groups here
-    }
+    var
+        BonusSetup: Record BonusSetup;
+        NoSeriesMgmt: Codeunit NoSeriesManagement;
     
-    
+    trigger OnInsert()
+    begin
+        if "No." = '' then begin
+            BonusSetup.Get();
+            BonusSetup.TestField("Bonus Nos.");
+            NoSeriesMgmt.InitSeries(BonusSetup."Bonus Nos.", xRec."No.", 0D, rec."No.", rec."No. Series");
+        end;
+    end;
     
 }
